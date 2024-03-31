@@ -1,7 +1,7 @@
 import component.chessboard_calibration as cc
 import component.distortion_correction as dc
 
-video_file = 'chessboard.avi'
+video_file = 'chessboard.mp4'
 board_pattern = (10, 7)
 board_cellsize = 0.025
 
