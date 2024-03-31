@@ -35,16 +35,16 @@
 
 ### 카메라 캘리브레이션
 
--**수행 과정**
-![카메라 캘리브레이션 과정](example/cam_calib.JPG)
+- **수행 과정**
+  ![카메라 캘리브레이션 과정](example/cam_calib.JPG)
 
--**수행 결과**
-![카메라 캘리브레이션 결과](example/calib_result.JPG)
+- **수행 결과**
+  ![카메라 캘리브레이션 결과](example/calib_result.JPG)
 
 ### 렌즈 왜곡 보정
 
--**수행 결과**
-![렌즈 왜곡 보정 결과](example/dist_corr.JPG)
+- **수행 결과**
+  ![렌즈 왜곡 보정 결과](example/dist_corr.JPG)
 
 ## 주의 사항
 
