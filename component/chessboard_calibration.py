@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-def select_img_from_video(video_file, board_pattern, select_all=False):
+def select_img(video_file, board_pattern, select_all=False):
     # Open a video
     video = cv.VideoCapture(video_file)
     assert video.isOpened()
@@ -40,7 +40,7 @@ def select_img_from_video(video_file, board_pattern, select_all=False):
     cv.destroyAllWindows()
     return img_select
 
-def calib_camera_from_chessboard(img_select, board_pattern, board_cellsize, K=None, dist_coeff=None, calib_flags=None):
+def calib_chessboard(img_select, board_pattern, board_cellsize, K=None, dist_coeff=None, calib_flags=None):
     # Find 2D corner points from given images
     # `img_points` represent the positions on the image
     img_points = []
@@ -61,19 +61,3 @@ def calib_camera_from_chessboard(img_select, board_pattern, board_cellsize, K=No
     # `dist_coeff`: Distortion coefficients
     # `calib_flags`: Calibration procedure control flags, specifying optional settings
     return cv.calibrateCamera(obj_points, img_points, gray.shape[::-1], K, dist_coeff, flags=calib_flags)
-
-if __name__ == '__main__':
-    video_file = 'chessboard.avi'
-    board_pattern = (10, 7)
-    board_cellsize = 0.025
-
-    img_select = select_img_from_video(video_file, board_pattern)
-    assert len(img_select) > 0, 'There is no selected images!'
-    rms, K, dist_coeff, rvecs, tvecs = calib_camera_from_chessboard(img_select, board_pattern, board_cellsize)
-
-    # Print calibration results
-    print('## Camera Calibration Results')
-    print(f'* The number of selected images = {len(img_select)}')
-    print(f'* RMS error = {rms}')
-    print(f'* Camera matrix (K) = \n{K}')
-    print(f'* Distortion coefficient (k1, k2, p1, p2, k3, ...) = {dist_coeff.flatten()}')
