@@ -41,6 +41,6 @@ if __name__ == '__main__':
     video_file = 'chessboard.avi'
     K = np.array([[432.7390364738057, 0, 476.0614994349778],
               [0, 431.2395555913084, 288.7602152621297],
-              [0, 0, 1]]) # Derived from `calibrate_camera.py`
+              [0, 0, 1]]) # Derived from `chessborad_calibration.py`
     dist_coeff = np.array([-0.2852754904152874, 0.1016466459919075, -0.0004420196146339175, 0.0001149909868437517, -0.01803978785585194])
     dist_corr(video_file, K, dist_coeff)
