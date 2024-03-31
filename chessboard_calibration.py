@@ -2,8 +2,6 @@ import cv2 as cv
 import numpy as np
 
 video_file = 'chessborad.avi'
-video = cv.VideoCapture(video_file)
-
 board_pattern = (10, 7)
 board_cellsize = 0.025
 
